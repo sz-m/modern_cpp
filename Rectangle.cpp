@@ -1,9 +1,10 @@
 #include "Rectangle.hpp"
 #include <iostream>
 
-Rectangle::Rectangle(double x, double y)
+Rectangle::Rectangle(double x, double y, Color color)
     : x_(x),
-      y_(y)
+      y_(y),
+      Shape{color}
 {}
 
 Rectangle::Rectangle(const Rectangle &other)
@@ -42,5 +43,6 @@ void Rectangle::print() const
     std::cout << getName() << ": x: " << getX()
               << ", y: " << getY()
               << ", area: " << getArea()
-              << ", perimeter: " << getPerimeter() << std::endl;
+              << ", perimeter: " << getPerimeter()
+              << ", color: " << getColor() << std::endl;
 }

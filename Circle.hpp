@@ -5,7 +5,7 @@
 class Circle : public Shape
 {
 public:
-    Circle(double r);
+    Circle(double r, Color color);
     Circle(const Circle & other);
 
     double getArea() const;

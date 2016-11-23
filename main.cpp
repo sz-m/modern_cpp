@@ -135,13 +135,13 @@ void pushShapesToQueue(Collection const& shapes)
 int main()
 {
     Collection shapes;
-    shapes.push_back(new Circle(2.0));
-    shapes.push_back(new Circle(3.0));
+    shapes.push_back(new Circle(2.0, Color::BLUE));
+    shapes.push_back(new Circle(3.0, Color::RED));
     shapes.push_back(nullptr);
-    shapes.push_back(new Circle(4.0));
-    shapes.push_back(new Rectangle(10.0, 5.0));
-    shapes.push_back(new Square(3.0));
-    shapes.push_back(new Circle(4.0));
+    shapes.push_back(new Circle(4.0, Color::GREEN));
+    shapes.push_back(new Rectangle(10.0, 5.0, Color::BLUE));
+    shapes.push_back(new Square(3.0, Color::GREEN));
+    shapes.push_back(new Circle(4.0, Color::BLUE));
 
     printCollectionElements(shapes);
 
@@ -153,7 +153,7 @@ int main()
     cout << std::endl << "Areas after sort: " << std::endl;
     printAreas(shapes);
 
-    Square* square = new Square(4.0);
+    Square* square = new Square(4.0, Color::RED);
     shapes.push_back(square);
 
     findFirstShapeMatchingPredicate(shapes, perimeterBiggerThan20, "perimeter bigger than 20");

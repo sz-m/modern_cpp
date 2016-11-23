@@ -1,12 +1,13 @@
 #include "Square.hpp"
 #include <iostream>
 
-Square::Square(double x)
-    : Rectangle(x, x)
-{}
+Square::Square(double x, Color color)
+    : Rectangle(x, x, color)
+{
+}
 
 Square::Square(const Square &other)
-    : Rectangle(other.getX(), other.getX())
+    : Rectangle(other.getX(), other.getX(), Shape::_color)
 {}
 
 double Square::getArea()
@@ -28,5 +29,6 @@ void Square::print()
 {
     std::cout << getName() << ":    x: " << getX()
               << ", area: " << getArea()
-              << ", perimeter: " << getPerimeter() << std::endl;
+              << ", perimeter: " << getPerimeter()
+              << ", color: " << getColor() << std::endl;
 }
