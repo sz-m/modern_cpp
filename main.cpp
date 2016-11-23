@@ -134,6 +134,20 @@ void pushShapesToQueue(auto const& shapes)
 
 int main()
 {
+  std::cout << "Alignment of...\n"
+  << "Shape: " << alignof(Shape) << std::endl
+  << "Circle: " << alignof(Circle) << std::endl
+  << "Rectangle: " << alignof(Rectangle) << std::endl
+  << "Int: " << alignof(int) << std::endl
+  << "---------------------------" << std::endl << std::endl;
+
+  std::cout << "Size of...\n"
+  << "Shape: " << sizeof(Shape) << std::endl
+  << "Circle: " << sizeof(Circle) << std::endl
+  << "Rectangle: " << sizeof(Rectangle) << std::endl
+  << "Int: " << sizeof(int) << std::endl
+  << "---------------------------" << std::endl << std::endl;
+
     Collection shapes;
     shapes.push_back(new Circle(2.0, Color::BLUE));
     shapes.push_back(new Circle(3.0, Color::RED));

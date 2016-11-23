@@ -2,20 +2,19 @@
 
 #include "Shape.hpp"
 
-class Circle : public Shape
+class alignas(64) Circle : public Shape
 {
 public:
+    Circle() = delete; // doesn't allow to call default constructor
     Circle(double r, Color color);
     Circle(const Circle & other);
 
-    double getArea() const;
-    double getPerimeter() const;
+    double getArea() const override;
+    double getPerimeter() const override;
     double getRadius() const;
-    std::string getName() const;
-    void print() const;
+    std::string getName() const override;
+    void print() const override;
 
 private:
-    Circle(); // doesn't allow to call default constructor
-
     double r_;
 };

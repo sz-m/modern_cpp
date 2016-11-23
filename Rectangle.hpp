@@ -5,19 +5,18 @@
 class Rectangle : public Shape
 {
 public:
+    Rectangle() = delete;
     Rectangle(double x, double y, Color color);
     Rectangle(const Rectangle & other);
 
-    double getArea() const;
-    double getPerimeter() const;
+    double getArea() const override;
+    double getPerimeter() const override;
     double getX() const;
     double getY() const;
-    std::string getName() const;
-    void print() const;
+    std::string getName() const override;
+    void print() const override;
 
 private:
-    Rectangle();
-
     double x_;
     double y_;
 };
