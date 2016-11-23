@@ -15,6 +15,9 @@ public:
     std::string getName() const override;
     void print() const override;
 
+//    [[deprecated("do not use")]]
+    double getPi() const;
+
 private:
     double r_;
 };

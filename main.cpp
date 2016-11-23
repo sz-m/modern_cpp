@@ -148,6 +148,8 @@ int main()
   << "Int: " << sizeof(int) << std::endl
   << "---------------------------" << std::endl << std::endl;
 
+  cout << "pi: " << (new Circle(2.0, Color::RED))->getPi() << std::endl;
+
     Collection shapes;
     shapes.push_back(new Circle(2.0, Color::BLUE));
     shapes.push_back(new Circle(3.0, Color::RED));

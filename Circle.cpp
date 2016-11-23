@@ -31,6 +31,11 @@ std::string Circle::getName() const
     return "Circle";
 }
 
+double Circle::getPi() const
+{
+  return 3.14;
+}
+
 void Circle::print() const
 {
     std::cout << getName() << ":    radius: " << getRadius()
