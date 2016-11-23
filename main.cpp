@@ -39,9 +39,9 @@ bool areaLessThan10(Shape* s)
     return false;
 }
 
-void printCollectionElements(const Collection& collection)
+bool printCollectionElements(const auto& collection)
 {
-    for(Collection::const_iterator it = collection.begin(); it != collection.end(); ++it)
+    for(auto it = collection.begin(); it != collection.end(); ++it)
     {
         if(*it != nullptr)
         {
@@ -55,10 +55,10 @@ void printArea(std::string name, double area)
     std::cout << "thread_id: " << std::this_thread::get_id() << " - " << name << ": " << area << std::endl;
 }
 
-void printAreas(const Collection& collection)
+void printAreas(const auto& collection)
 {
     std::vector<std::thread> threads;
-    for(vector<Shape*>::const_iterator it = collection.begin(); it != collection.end(); ++it)
+    for(auto it = collection.begin(); it != collection.end(); ++it)
     {
         if(*it != nullptr)
         {
@@ -66,17 +66,17 @@ void printAreas(const Collection& collection)
             threads.push_back(std::move(th));
         }
     }
-    for(unsigned int i = 0; i < threads.size(); i++)
+    for(auto i = 0; i < threads.size(); i++)
     {
         threads[i].join();
     }
 }
 
-void findFirstShapeMatchingPredicate(const Collection& collection,
+void findFirstShapeMatchingPredicate(const auto& collection,
                                      bool (*predicate)(Shape* s),
                                      std::string info)
 {
-    Collection::const_iterator iter = std::find_if(collection.begin(), collection.end(), predicate);
+    auto iter = std::find_if(collection.begin(), collection.end(), predicate);
     if(*iter != nullptr)
     {
         cout << std::endl << "First shape matching predicate: " << info << endl;
@@ -124,9 +124,9 @@ void runQueue()
     }
 }
 
-void pushShapesToQueue(Collection const& shapes)
+void pushShapesToQueue(auto const& shapes)
 {
-    for(int i = 0; i < shapes.size(); ++i)
+    for(auto i = 0; i < shapes.size(); ++i)
     {
         g_queue.push(shapes[i]);
     }
