@@ -6,6 +6,10 @@ Circle::Circle(double r, Color color)
     : r_(r), Shape{color}
 {}
 
+Circle::Circle(double r)
+    : Circle(r, Color::RED)
+{}
+
 Circle::Circle(const Circle & other)
 {
     r_ = other.getRadius();

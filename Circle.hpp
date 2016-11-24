@@ -7,6 +7,7 @@ class alignas(64) Circle : public Shape
 public:
     Circle() = delete; // doesn't allow to call default constructor
     Circle(double r, Color color);
+    Circle(double r);
     Circle(const Circle & other);
 
     double getArea() const override;

@@ -150,12 +150,16 @@ int main()
 
   std::cout << "pi: " << std::make_shared<Circle>(Circle(2.0, Color::RED))->getPi() << std::endl;
 
-    Collection shapes{std::make_shared<Circle>(Circle(2.0, Color::BLUE)),
-                      std::make_shared<Circle>(Circle(3.0, Color::RED)),
-                      std::make_shared<Circle>(Circle(4.0, Color::GREEN)),
-                      std::make_shared<Rectangle>(Rectangle(10.0, 5.0, Color::BLUE)),
-                      std::make_shared<Square>(Square(3.0, Color::GREEN)),
-                      std::make_shared<Circle>(Circle(4.0, Color::BLUE))};
+  std::make_shared<Circle>(1.1)->print();
+
+    Collection shapes{std::make_shared<Circle>(2.0, Color::BLUE),
+                      std::make_shared<Circle>(3.0, Color::RED),
+                      nullptr,
+                      std::make_shared<Circle>(4.0, Color::GREEN),
+                      std::make_shared<Rectangle>(10.0, 5.0, Color::BLUE),
+                      std::make_shared<Square>(3.0, Color::GREEN),
+                      std::make_shared<Circle>(4.0, Color::BLUE),
+                      std::make_shared<Circle>(7.0)};
 
     printCollectionElements(shapes);
 
