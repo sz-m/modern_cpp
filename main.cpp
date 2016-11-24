@@ -12,48 +12,44 @@ using namespace std;
 
 using Collection = vector<std::shared_ptr<Shape>>;
 
-bool sortByArea(std::shared_ptr<Shape> first, std::shared_ptr<Shape> second)
+auto sortByArea = [](std::shared_ptr<Shape> first, std::shared_ptr<Shape> second)
 {
-    if(first == nullptr || second == nullptr)
-    {
-        return false;
-    }
-    return (first->getArea() < second->getArea());
-}
-
-bool perimeterBiggerThan20(std::shared_ptr<Shape> s)
-{
-    if(s)
-    {
-        return (s->getPerimeter() > 20);
-    }
+  if(first == nullptr || second == nullptr)
+  {
     return false;
-}
+  }
+  return (first->getArea() < second->getArea());
+};
 
-bool areaLessThan10(std::shared_ptr<Shape> s)
+auto perimeterBiggerThan20 = [](std::shared_ptr<Shape> s)
 {
-    if(s)
-    {
-        return (s->getArea() < 10);
-    }
-    return false;
-}
+  if(s)
+    return (s->getPerimeter() > 20);
 
-bool printCollectionElements(const auto& collection)
-{
-    for(auto it = collection.begin(); it != collection.end(); ++it)
-    {
-        if(*it != nullptr)
-        {
-            (*it)->print();
-        }
-    }
-}
+  return false;
+};
 
-void printArea(std::string name, double area)
+auto areaLessThan10 = [](std::shared_ptr<Shape> s)
 {
-    std::cout << "thread_id: " << std::this_thread::get_id() << " - " << name << ": " << area << std::endl;
-}
+  if(s)
+    return (s->getArea() < 10);
+
+  return false;
+};
+
+auto printCollectionElements = [](const auto& collection)
+{
+  for(auto it = collection.begin(); it != collection.end(); ++it)
+  {
+    if(*it != nullptr)
+      (*it)->print();
+  }
+};
+
+auto printArea = [](std::string name, double area)
+{
+  std::cout << "thread_id: " << std::this_thread::get_id() << " - " << name << ": " << area << std::endl;
+};
 
 void printAreas(const auto& collection)
 {
