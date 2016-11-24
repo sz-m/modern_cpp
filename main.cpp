@@ -12,6 +12,12 @@ using namespace std;
 
 using Collection = vector<std::shared_ptr<Shape>>;
 
+template<class DerivedType, class... Arguments>
+std::shared_ptr<Shape> make_shape(Arguments&& ...args)
+{
+  return std::make_shared<DerivedType>(std::forward<Arguments>(args)...);
+}
+
 auto sortByArea = [](std::shared_ptr<Shape> first, std::shared_ptr<Shape> second)
 {
   if(first == nullptr || second == nullptr)
@@ -148,14 +154,14 @@ int main()
 
   std::make_shared<Circle>(1.1)->print();
 
-    Collection shapes{std::make_shared<Circle>(2.0, Color::BLUE),
-                      std::make_shared<Circle>(3.0, Color::RED),
+    Collection shapes{make_shape<Circle>(2.0, Color::BLUE),
+                      make_shape<Circle>(3.0, Color::RED),
                       nullptr,
-                      std::make_shared<Circle>(4.0, Color::GREEN),
-                      std::make_shared<Rectangle>(10.0, 5.0, Color::BLUE),
-                      std::make_shared<Square>(3.0, Color::GREEN),
-                      std::make_shared<Circle>(4.0, Color::BLUE),
-                      std::make_shared<Circle>(7.0)};
+                      make_shape<Circle>(4.0, Color::GREEN),
+                      make_shape<Rectangle>(10.0, 5.0, Color::BLUE),
+                      make_shape<Square>(3.0, Color::GREEN),
+                      make_shape<Circle>(4.0, Color::BLUE),
+                      make_shape<Circle>(7.0)};
 
     printCollectionElements(shapes);
 
@@ -167,7 +173,7 @@ int main()
     cout << std::endl << "Areas after sort: " << std::endl;
     printAreas(shapes);
 
-    auto square = std::make_shared<Square>(Square(4.0, Color::RED));
+    auto square = make_shape<Square>(Square(4.0, Color::RED));
     shapes.push_back(square);
 
     findFirstShapeMatchingPredicate(shapes, perimeterBiggerThan20, "perimeter bigger than 20");
